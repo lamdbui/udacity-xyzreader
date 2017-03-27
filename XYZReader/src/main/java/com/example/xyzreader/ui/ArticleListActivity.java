@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.RecyclerView;
@@ -147,13 +149,42 @@ public class ArticleListActivity extends ActionBarActivity implements
                     DateUtils.getRelativeTimeSpanString(
                             mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
                             System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
-                            DateUtils.FORMAT_ABBREV_ALL).toString()
-                            + " by "
-                            + mCursor.getString(ArticleLoader.Query.AUTHOR));
+                            DateUtils.FORMAT_ABBREV_ALL).toString());
             holder.thumbnailView.setImageUrl(
                     mCursor.getString(ArticleLoader.Query.THUMB_URL),
                     ImageLoaderHelper.getInstance(ArticleListActivity.this).getImageLoader());
             holder.thumbnailView.setAspectRatio(mCursor.getFloat(ArticleLoader.Query.ASPECT_RATIO));
+
+            holder.authorView.setText(mCursor.getString(ArticleLoader.Query.AUTHOR));
+
+            final int NUM_OF_CARD_COLORS = 3;
+
+            int card_color = position % NUM_OF_CARD_COLORS;
+
+            if(0 == card_color) {
+                holder.titleView.setBackgroundColor(ContextCompat
+                        .getColor(getApplicationContext(), R.color.theme_primary_dark));
+                holder.subtitleView.setBackgroundColor(ContextCompat
+                        .getColor(getApplicationContext(), R.color.theme_primary_dark));
+                holder.authorView.setBackgroundColor(ContextCompat
+                        .getColor(getApplicationContext(), R.color.theme_primary_dark));
+            }
+            else if(1 == card_color) {
+                holder.titleView.setBackgroundColor(ContextCompat
+                        .getColor(getApplicationContext(), R.color.theme_second_primary_dark));
+                holder.subtitleView.setBackgroundColor(ContextCompat
+                        .getColor(getApplicationContext(), R.color.theme_second_primary_dark));
+                holder.authorView.setBackgroundColor(ContextCompat
+                        .getColor(getApplicationContext(), R.color.theme_second_primary_dark));
+            }
+            else {  // card_color == 2
+                holder.titleView.setBackgroundColor(ContextCompat
+                        .getColor(getApplicationContext(), R.color.theme_third_primary_dark));
+                holder.subtitleView.setBackgroundColor(ContextCompat
+                        .getColor(getApplicationContext(), R.color.theme_third_primary_dark));
+                holder.authorView.setBackgroundColor(ContextCompat
+                        .getColor(getApplicationContext(), R.color.theme_third_primary_dark));
+            }
         }
 
         @Override
@@ -166,12 +197,14 @@ public class ArticleListActivity extends ActionBarActivity implements
         public DynamicHeightNetworkImageView thumbnailView;
         public TextView titleView;
         public TextView subtitleView;
+        public TextView authorView;
 
         public ViewHolder(View view) {
             super(view);
             thumbnailView = (DynamicHeightNetworkImageView) view.findViewById(R.id.thumbnail);
             titleView = (TextView) view.findViewById(R.id.article_title);
             subtitleView = (TextView) view.findViewById(R.id.article_subtitle);
+            authorView = (TextView) view.findViewById(R.id.article_author);
         }
     }
 }
