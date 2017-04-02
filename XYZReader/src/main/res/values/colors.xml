@@ -39,6 +39,8 @@
     <color name="ltgray">#ffe0e0e0</color>
     <color name="teal">#00BCD4</color>
 
+    <color name="detail_max_width_linear_layout_background">#ffffff</color>
+
     <!--color name="theme_primary">#04561A</color>
     <color name="theme_primary_dark">#04561A</color>
     <color name="theme_accent">#04561A</color>

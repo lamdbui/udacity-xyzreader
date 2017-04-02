@@ -33,6 +33,7 @@
             android:paddingRight="16dp"
             android:paddingBottom="4dp"
             android:textColor="@android:color/white"
+            android:textStyle="bold"
             android:ellipsize="end"
             android:maxLines="4" />
 

@@ -7,7 +7,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="256dp"
+        android:layout_height="@dimen/detail_appbar_layout_height"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -18,8 +18,8 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
             android:fitsSystemWindows="true"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:contentScrim="?attr/colorPrimaryDark"
-            app:expandedTitleMarginStart="48dp"
-            app:expandedTitleMarginEnd="64dp">
+            app:expandedTitleMarginStart="@dimen/expanding_title_margin_start"
+            app:expandedTitleMarginEnd="@dimen/expanding_title_margin_end">
 
             <FrameLayout
                 android:id="@+id/photo_container"
@@ -43,7 +43,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_height="?actionBarSize"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 app:layout_collapseMode="pin"
-                app:contentInsetStart="72dp"/>
+                app:contentInsetStart="@dimen/detail_toolbar_content_inset_start"/>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
@@ -60,14 +60,13 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:maxWidth="@dimen/detail_card_max_width"
-            android:background="#fff"
-            android:elevation="2dp">
+            android:background="@color/detail_max_width_linear_layout_background"
+            android:elevation="@dimen/detail_max_width_linear_layout_elevation">
 
             <LinearLayout
                 android:id="@+id/meta_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#333"
                 android:layout_gravity="bottom"
                 android:orientation="vertical"
                 android:paddingLeft="@dimen/detail_inner_horiz_margin"
@@ -78,14 +77,11 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 
                 <TextView
                     android:id="@+id/article_title"
-                    style="?android:attr/textAppearanceLarge"
+                    style="@style/DetailHeaderTextAppearance"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
                     android:fontFamily="sans-serif-condensed"
-                    android:textColor="#fff"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/detail_title_text_size"
                     android:lineSpacingMultiplier="0.9" />
 
                 <TextView
@@ -121,11 +117,8 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
         android:src="@drawable/ic_share"
         android:contentDescription="@string/action_share"
         app:elevation="@dimen/fab_elevation"
+        app:borderWidth="@dimen/fab_border_width"
         app:layout_anchor="@id/appbar"
         app:layout_anchorGravity="bottom|end"/>
 
 </android.support.design.widget.CoordinatorLayout>
-
-
-
-<!--/com.example.xyzreader.ui.DrawInsetsFrameLayout-->
