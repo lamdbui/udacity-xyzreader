@@ -19,7 +19,8 @@
             app:contentScrim="@color/teal"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:expandedTitleMarginStart="@dimen/expanding_title_margin_start"
-            app:expandedTitleMarginEnd="@dimen/expanding_title_margin_end">
+            app:expandedTitleMarginEnd="@dimen/expanding_title_margin_end"
+            app:titleEnabled="false">
 
             <FrameLayout
                 android:id="@+id/photo_container"
@@ -42,6 +43,7 @@
             <android.support.v7.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
+                android:fitsSystemWindows="true"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 app:layout_collapseMode="pin"
                 app:contentInsetStart="@dimen/detail_toolbar_content_inset_start"/>
@@ -54,6 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/scrollview_margin_overlap"
+        android:fitsSystemWindows="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <com.example.xyzreader.ui.MaxWidthLinearLayout
@@ -64,6 +67,10 @@
             android:maxWidth="@dimen/detail_card_max_width"
             android:background="@color/detail_max_width_linear_layout_background"
             android:elevation="@dimen/detail_max_width_linear_layout_elevation">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
             <LinearLayout
                 android:id="@+id/meta_bar"
@@ -83,7 +90,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
-                    android:fontFamily="sans-serif-condensed"
                     android:lineSpacingMultiplier="@fraction/detail_header_line_spacing_multiplier" />
 
                 <TextView
@@ -93,6 +99,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/article_second_text_color" />
             </LinearLayout>
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/article_body"
