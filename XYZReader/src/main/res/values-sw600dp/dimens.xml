@@ -6,4 +6,5 @@
     <dimen name="fab_margin">24dp</dimen>
 
     <dimen name="scrollview_margin_overlap">-80dp</dimen>
+    <dimen name="scrollview_elevation">6dp</dimen>
 </resources>
