@@ -6,7 +6,7 @@
     <item name="detail_header_line_spacing_multiplier" format="float" type="fraction">0.9</item>
 
     <dimen name="toolbar_elevation">8dp</dimen>
-    <dimen name="toolbar_layout_height">112dp</dimen>
+    <dimen name="toolbar_layout_height">96dp</dimen>
 
     <dimen name="fab_elevation">6dp</dimen>
     <dimen name="fab_press_translation_z">12dp</dimen>
@@ -23,6 +23,6 @@
     <dimen name="list_item_title_padding">16dp</dimen>
     <dimen name="list_item_title_padding_bottom">4dp</dimen>
     <dimen name="list_item_content_padding">16dp</dimen>
-    <dimen name="list_item_card_spacing">8dp</dimen>
+    <dimen name="list_item_card_spacing">4dp</dimen>
 
 </resources>
