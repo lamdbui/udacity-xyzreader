@@ -1,4 +1,7 @@
 <resources>
+    <!-- list -->
+    <integer name="list_column_count">3</integer>
+
     <!-- detail -->
     <dimen name="detail_photo_height">224dp</dimen>
     <dimen name="detail_inner_vertical_margin">16dp</dimen>
@@ -7,5 +10,4 @@
 
     <!-- scrollview -->
     <dimen name="scrollview_margin_overlap">-80dp</dimen>
-    <dimen name="scrollview_elevation">6dp</dimen>
 </resources>
