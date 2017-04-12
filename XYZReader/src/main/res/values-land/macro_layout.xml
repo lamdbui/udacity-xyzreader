@@ -1,11 +1,11 @@
 <resources>
     <!-- detail -->
     <dimen name="detail_photo_height">224dp</dimen>
-    <!--dimen name="detail_inner_horiz_margin">112dp</dimen-->
     <dimen name="detail_inner_vertical_margin">16dp</dimen>
     <dimen name="detail_inner_horiz_margin">16dp</dimen>
     <dimen name="detail_card_max_width">570dp</dimen>
 
+    <!-- scrollview -->
     <dimen name="scrollview_margin_overlap">-80dp</dimen>
     <dimen name="scrollview_elevation">6dp</dimen>
 </resources>

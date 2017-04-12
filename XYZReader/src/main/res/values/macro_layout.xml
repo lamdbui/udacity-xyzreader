@@ -15,4 +15,8 @@
     <dimen name="detail_metabar_title_bottom_padding">4dp</dimen>
     <dimen name="detail_body_top_margin">16dp</dimen>
     <dimen name="detail_body_bottom_margin">88dp</dimen>
+
+    <!-- scrollview -->
+    <dimen name="scrollview_margin_overlap">0dp</dimen>
+    <dimen name="scrollview_elevation">6dp</dimen>
 </resources>
