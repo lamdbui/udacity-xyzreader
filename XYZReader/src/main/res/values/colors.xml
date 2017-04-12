@@ -36,9 +36,10 @@
     <color name="theme_third_primary_text">#212121</color>
     <color name="theme_third_secondary_text">#757575</color>
 
-    <color name="ltgray">#ffe0e0e0</color>
+    <color name="ltgray">#FFE0E0E0</color>
     <color name="teal">#00BCD4</color>
+    <color name="background_muted_color">#FF333333</color>
 
-    <color name="detail_max_width_linear_layout_background">#ffffff</color>
-    <color name="article_second_text_color">#8fff</color>
+    <color name="detail_max_width_linear_layout_background">#FFFFFF</color>
+    <color name="article_second_text_color">#8FFF</color>
 </resources>

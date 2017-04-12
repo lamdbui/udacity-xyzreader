@@ -20,6 +20,7 @@
     <style name="Theme.XYZ" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <item name="android:colorPrimary">@android:color/holo_green_light</item>
         <item name="android:colorAccent">@android:color/holo_orange_dark</item>
+
     </style>
 
     <style name="Theme.XYZ.Detail">
