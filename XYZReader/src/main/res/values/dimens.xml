@@ -25,4 +25,6 @@
     <dimen name="list_item_content_padding">16dp</dimen>
     <dimen name="list_item_card_spacing">4dp</dimen>
 
+    <dimen name="scrollview_margin_overlap">0dp</dimen>
+    <dimen name="scrollview_elevation">6dp</dimen>
 </resources>
