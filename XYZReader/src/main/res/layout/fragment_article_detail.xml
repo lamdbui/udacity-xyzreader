@@ -126,6 +126,7 @@
         app:elevation="@dimen/fab_elevation"
         app:borderWidth="@dimen/fab_border_width"
         app:layout_anchor="@id/appbar"
-        app:layout_anchorGravity="bottom|end"/>
+        app:layout_anchorGravity="bottom|end"
+        app:layout_behavior=".ui.FABBehavior" />
 
 </android.support.design.widget.CoordinatorLayout>

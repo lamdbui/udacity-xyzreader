@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ShareCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.graphics.Palette;
@@ -47,6 +48,8 @@ public class ArticleDetailFragment extends Fragment implements
     private ImageView mPhotoView;
     private int mScrollY;
     private boolean mIsCard = false;
+
+    private FloatingActionButton mFloatingActionButton;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -109,6 +112,9 @@ public class ArticleDetailFragment extends Fragment implements
                         .getIntent(), getString(R.string.action_share)));
             }
         });
+
+        mFloatingActionButton = (FloatingActionButton) mRootView.findViewById(R.id.share_fab);
+        mFloatingActionButton.hide();
 
         bindViews();
         return mRootView;
