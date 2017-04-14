@@ -18,5 +18,5 @@
 
     <!-- scrollview -->
     <dimen name="scrollview_margin_overlap">0dp</dimen>
-    <dimen name="scrollview_elevation">6dp</dimen>
+    <dimen name="scrollview_elevation">2dp</dimen>
 </resources>

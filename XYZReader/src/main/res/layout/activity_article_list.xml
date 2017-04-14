@@ -7,8 +7,7 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/toolbar_container"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_layout_height"
-        android:background="@color/teal"
+        android:layout_height="wrap_content"
         android:elevation="@dimen/toolbar_elevation">
 
         <android.support.v7.widget.Toolbar
@@ -17,7 +16,7 @@
             android:layout_marginLeft="@dimen/list_toolbar_side_margin"
             android:layout_marginRight="@dimen/list_toolbar_side_margin"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/toolbar_layout_height"
             android:layout_gravity="bottom">
 
             <ImageView
@@ -44,7 +43,7 @@
             android:paddingTop="@dimen/list_top_margin"
             android:paddingLeft="@dimen/list_side_margin"
             android:paddingRight="@dimen/list_side_margin"
-            android:paddingBottom="@dimen/list_side_margin"/>
+            android:paddingBottom="@dimen/list_side_margin" />
     </android.support.v4.widget.SwipeRefreshLayout>
 
 </android.support.design.widget.CoordinatorLayout>

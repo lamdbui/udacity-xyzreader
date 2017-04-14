@@ -18,8 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
+            app:contentScrim="?colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:contentScrim="@color/teal"
             app:expandedTitleMarginStart="@dimen/expanding_title_margin_start"
             app:expandedTitleMarginEnd="@dimen/expanding_title_margin_end">
 
