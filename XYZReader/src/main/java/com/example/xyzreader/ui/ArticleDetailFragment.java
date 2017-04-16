@@ -7,6 +7,7 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ShareCompat;
@@ -37,7 +38,6 @@ public class ArticleDetailFragment extends Fragment implements
     private static final String TAG = "ArticleDetailFragment";
 
     public static final String ARG_ITEM_ID = "item_id";
-    private static final float PARALLAX_FACTOR = 1.25f;
 
     private Cursor mCursor;
     private long mItemId;
@@ -120,20 +120,6 @@ public class ArticleDetailFragment extends Fragment implements
         return mRootView;
     }
 
-    static float progress(float v, float min, float max) {
-        return constrain((v - min) / (max - min), 0, 1);
-    }
-
-    static float constrain(float val, float min, float max) {
-        if (val < min) {
-            return min;
-        } else if (val > max) {
-            return max;
-        } else {
-            return val;
-        }
-    }
-
     private void bindViews() {
         if (mRootView == null) {
             return;
@@ -150,23 +136,46 @@ public class ArticleDetailFragment extends Fragment implements
             mRootView.setVisibility(View.VISIBLE);
             mRootView.animate().alpha(1);
             titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
-            bylineView.setText(Html.fromHtml(
-                    DateUtils.getRelativeTimeSpanString(
-                            mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
-                            System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
-                            DateUtils.FORMAT_ABBREV_ALL).toString()
-                            + " by <font color='#ffffff'>"
-                            + mCursor.getString(ArticleLoader.Query.AUTHOR)
-                            + "</font>"));
-            bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
+//            bylineView.setText(Html.fromHtml(
+//                    DateUtils.getRelativeTimeSpanString(
+//                            mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
+//                            System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
+//                            DateUtils.FORMAT_ABBREV_ALL).toString()
+//                            + " by <font color='#ffffff'>"
+//                            + mCursor.getString(ArticleLoader.Query.AUTHOR)
+//                            + "</font>"));
+            String htmlLineString = DateUtils.getRelativeTimeSpanString(
+                    mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
+                    System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
+                    DateUtils.FORMAT_ABBREV_ALL).toString()
+                    + " by <font color='#ffffff'>"
+                    + mCursor.getString(ArticleLoader.Query.AUTHOR)
+                    + "</font>";
+            String bodyString = mCursor.getString(ArticleLoader.Query.BODY);
+            if(Build.VERSION.SDK_INT >= 24) {
+                bylineView.setText(Html.fromHtml(htmlLineString, Html.FROM_HTML_MODE_LEGACY));
+                bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY),
+                        Html.FROM_HTML_MODE_LEGACY));
+            }
+            else {
+                bylineView.setText(Html.fromHtml(htmlLineString));
+                bodyView.setText(Html.fromHtml(bodyString));
+            }
+
+            //bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
             ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
                     .get(mCursor.getString(ArticleLoader.Query.PHOTO_URL), new ImageLoader.ImageListener() {
                         @Override
                         public void onResponse(ImageLoader.ImageContainer imageContainer, boolean b) {
                             Bitmap bitmap = imageContainer.getBitmap();
                             if (bitmap != null) {
-                                Palette p = Palette.generate(bitmap, 12);
-                                mMutedColor = p.getDarkMutedColor(ContextCompat.getColor(getActivity(), R.color.background_muted_color));
+                                Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+                                    @Override
+                                    public void onGenerated(Palette palette) {
+                                        mMutedColor = palette.getDarkMutedColor(ContextCompat
+                                                .getColor(getActivity(), R.color.background_muted_color));
+                                    }
+                                });
                                 mPhotoView.setImageBitmap(imageContainer.getBitmap());
                                 mRootView.findViewById(R.id.meta_bar)
                                         .setBackgroundColor(mMutedColor);
