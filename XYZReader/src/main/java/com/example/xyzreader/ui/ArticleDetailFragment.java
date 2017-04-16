@@ -113,8 +113,8 @@ public class ArticleDetailFragment extends Fragment implements
             }
         });
 
-        mFloatingActionButton = (FloatingActionButton) mRootView.findViewById(R.id.share_fab);
-        mFloatingActionButton.hide();
+        //mFloatingActionButton = (FloatingActionButton) mRootView.findViewById(R.id.share_fab);
+        //mFloatingActionButton.hide();
 
         bindViews();
         return mRootView;
@@ -136,14 +136,6 @@ public class ArticleDetailFragment extends Fragment implements
             mRootView.setVisibility(View.VISIBLE);
             mRootView.animate().alpha(1);
             titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
-//            bylineView.setText(Html.fromHtml(
-//                    DateUtils.getRelativeTimeSpanString(
-//                            mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
-//                            System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
-//                            DateUtils.FORMAT_ABBREV_ALL).toString()
-//                            + " by <font color='#ffffff'>"
-//                            + mCursor.getString(ArticleLoader.Query.AUTHOR)
-//                            + "</font>"));
             String htmlLineString = DateUtils.getRelativeTimeSpanString(
                     mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
                     System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
@@ -162,7 +154,6 @@ public class ArticleDetailFragment extends Fragment implements
                 bodyView.setText(Html.fromHtml(bodyString));
             }
 
-            //bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
             ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
                     .get(mCursor.getString(ArticleLoader.Query.PHOTO_URL), new ImageLoader.ImageListener() {
                         @Override
