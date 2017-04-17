@@ -44,7 +44,6 @@
             android:paddingRight="@dimen/list_item_content_padding"
             android:textColor="@android:color/white"
             android:maxLines="1"
-            android:singleLine="true"
             android:ellipsize="end" />
 
         <TextView

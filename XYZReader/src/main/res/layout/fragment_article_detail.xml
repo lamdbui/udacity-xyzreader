@@ -121,12 +121,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/fab_margin"
+        android:layout_marginEnd="@dimen/fab_margin"
         android:src="@drawable/ic_share"
         android:contentDescription="@string/action_share"
         app:elevation="@dimen/fab_elevation"
         app:borderWidth="@dimen/fab_border_width"
         app:layout_anchor="@id/appbar"
-        app:layout_anchorGravity="bottom|end"
-        app:layout_behavior=".ui.FABBehavior" />
+        app:layout_anchorGravity="bottom|end" />
 
 </android.support.design.widget.CoordinatorLayout>
