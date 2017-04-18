@@ -110,6 +110,7 @@ public class ArticleDetailFragment extends Fragment implements
         return mRootView;
     }
 
+    @SuppressWarnings("deprecation")
     private void bindViews() {
         if (mRootView == null) {
             return;

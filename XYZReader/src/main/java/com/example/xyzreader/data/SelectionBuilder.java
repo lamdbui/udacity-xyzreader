@@ -38,26 +38,9 @@ import java.util.HashMap;
  */
 public class SelectionBuilder {
     private String mTable = null;
-    private HashMap<String, String> mProjectionMap;
+    private HashMap<String, String> mProjectionMap = null;
     private StringBuilder mSelection;
     private ArrayList<String> mSelectionArgs;
-
-    /**
-     * Reset any internal state, allowing this builder to be recycled.
-     */
-    public SelectionBuilder reset() {
-        mTable = null;
-		if (mProjectionMap != null) {
-			mProjectionMap.clear();
-		}
-		if (mSelection != null) {
-			mSelection.setLength(0);
-		}
-		if (mSelectionArgs != null) {
-			mSelectionArgs.clear();
-		}
-        return this;
-    }
 
     /**
      * Append the given selection clause to the internal state. Each clause is

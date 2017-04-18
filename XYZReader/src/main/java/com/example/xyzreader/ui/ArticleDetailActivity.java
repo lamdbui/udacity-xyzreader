@@ -29,7 +29,6 @@ public class ArticleDetailActivity extends AppCompatActivity
     private Cursor mCursor;
     private long mStartId;
 
-    private long mSelectedItemId;
     private int mSelectedItemUpButtonFloor = Integer.MAX_VALUE;
     private int mTopInset;
 
@@ -71,7 +70,6 @@ public class ArticleDetailActivity extends AppCompatActivity
                 if (mCursor != null) {
                     mCursor.moveToPosition(position);
                 }
-                mSelectedItemId = mCursor.getLong(ArticleLoader.Query._ID);
                 updateUpButtonPosition();
             }
         });
@@ -102,7 +100,6 @@ public class ArticleDetailActivity extends AppCompatActivity
         if (savedInstanceState == null) {
             if (getIntent() != null && getIntent().getData() != null) {
                 mStartId = ItemsContract.Items.getItemId(getIntent().getData());
-                mSelectedItemId = mStartId;
             }
         }
     }
